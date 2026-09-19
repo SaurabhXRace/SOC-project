@@ -1,6 +1,6 @@
 # SOC-project
 A SOC (Security Operations Center) Analyst is a front-line defender responsible for monitoring an organization's digital infrastructure, investigating potential cyber threats, and responding to security incidents. They analyze data across endpoints, cloud environments, identity managers, and network traffic to keep malicious actors out.
-### <u>Key Technical & Soft Skills</u>
+### <ins>Key Technical & Soft Skills</ins>
 * SIEM & Log Analytics: Expertise in querying platforms like Splunk (SPL), Microsoft Sentinel (KQL), or Elastic to correlate logs across disparate sources. 
 * Endpoint Detection & Response (EDR/XDR): Navigating tools like Wazuh, CrowdStrike, or Defender to track malicious processes, persistence mechanisms, and lateral movement. 
 * Threat Frameworks: Mapping attacker behaviors directly to the MITRE ATT&CK matrix to identify tactics, techniques, and procedures (TTPs).
