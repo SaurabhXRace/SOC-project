@@ -7,7 +7,7 @@ A SOC (Security Operations Center) Analyst is a front-line defender responsible 
 * Network & Endpoint Analysis: Understanding packet captures (Wireshark), Sysmon event logs, and OS internals (Windows/Linux). 
 * Scripting & Automation: Writing Python, PowerShell, or Bash scripts to automate routine investigations and build SOAR playbooks.
 * Report Writing & Communication: Articulating complex technical incidents into actionable business-impact reports for management and IT teams.
-
+---
 
 ### SEIM TOOL USE IN THIS PROJECT
 End-to-end Security Operations Center (SOC) lab environment featuring threat detection, log analysis, and automated incident response using Wazuh (SIEM/XDR), Splunk (log analytics), and Microsoft Sentinel (cloud-native SIEM/SOAR).
