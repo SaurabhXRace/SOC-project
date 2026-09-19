@@ -19,8 +19,6 @@ End-to-end Security Operations Center (SOC) lab environment featuring threat det
 
 To build and operate this multi-SIEM SOC lab, ensure you meet the following hardware, virtual machine, and platform requirements:
 
----
-
 ### 1. Hardware & Virtualization Setup
 Running multiple SIEM instances, endpoint agents, and attack environments requires adequate system resources:
 * **RAM:** Minimum 16 GB (32 GB recommended to comfortably run target endpoints, Wazuh Manager, Splunk Enterprise, and Kali Linux simultaneously).
