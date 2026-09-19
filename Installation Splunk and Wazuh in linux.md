@@ -8,10 +8,6 @@ sudo /opt/splunkforwarder/bin/splunk start --accept-license
 ```
 
 ```
-sudo dpkg - i splunkforwarder.deb
-```
-
-```
 sudo dpkg -i splunkforwarder.deb
 ```
 
@@ -48,6 +44,5 @@ sudo /opt/splunkforwarder/bin/splunk restart
 
 ```
 sudo /opt/splunkforwarder/bin/splunk list forward-server
-```
 ```
 
