@@ -1,7 +1,7 @@
 # 🚀 Splunk Universal Forwarder Installation & Configuration Guide (Ubuntu/Debian)
 
 This repository provides a complete, step-by-step guide for installing, configuring, and managing the **Splunk Universal Forwarder** on Linux systems (Ubuntu/Debian).
-
+> ⚠️ **Note:** Please run all the command exact step by step 1-8.
 ---
 
 ## 📋 Prerequisites & Overview
@@ -70,10 +70,10 @@ sudo /opt/splunkforwarder/bin/splunk start
 
 This command configures the Universal Forwarder to direct all gathered log streams to your central Splunk Indexer or Heavy Forwarder.
 
-> ⚠️ **Note:** Replace `192.168.0.150` with the actual IP address or hostname of your central Splunk Indexer. Port `9997` is the default receiving port configured on Splunk deployment servers.
+> ⚠️ **Note:** Replace `192.168.33.36` with the actual IP address or hostname of your central Splunk Indexer. Port `9997` is the default receiving port configured on Splunk deployment servers.
 
 ```bash
-sudo /opt/splunkforwarder/bin/splunk add forward-server 192.168.0.150:9997
+sudo /opt/splunkforwarder/bin/splunk add forward-server 192.168.33.36:9997
 ```
 
 ---
