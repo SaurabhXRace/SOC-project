@@ -1,7 +1,7 @@
 # 🚀 Splunk Universal Forwarder Installation & Configuration Guide (Ubuntu/Debian)
 
 This repository provides a complete, step-by-step guide for installing, configuring, and managing the **Splunk Universal Forwarder** on Linux systems (Ubuntu/Debian).
-> ⚠️ **Note:** Please run all the command exact step by step 1-8.
+> ⚠️ **Note:** Please execute all commands in exact numerical sequence (Steps 1 to 8). Ensure Ubuntu is installed, open the terminal, and paste the commands accordingly.
 ---
 
 ## 📋 Prerequisites & Overview
