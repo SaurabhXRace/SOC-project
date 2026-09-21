@@ -63,3 +63,6 @@ Return to the Splunk Search bar, refresh the page, and execute targeted SPL quer
   *Description: Displays all events where access was granted successfully.*
 
 > **Tip:** Click the arrow (`>`) next to any log entry in Splunk to expand and inspect event details like source IP, username, and exact timestamps.
+
+# SSH Monitoring
+
