@@ -31,6 +31,7 @@ Open the Splunk Web UI on your browser and run a basic SPL (Search Processing La
 ```spl
 index=main source="/var/log/auth.log"
 ```
+<img width="1737" height="258" alt="Screenshot 2026-11-06 121006" src="https://github.com/user-attachments/assets/d166fa80-2c56-4d74-bf84-45139d162c99" />
 
 ---
 
