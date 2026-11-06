@@ -266,3 +266,7 @@ index=main sourcetype="linux_audit" "sudo:"
 2. Click **Save As** $\rightarrow$ **Alert**.
 3. Set the title to `Sudo Privilege Escalation Detected`.
 4. Set the scheduled frequency, assign a **Medium** or **High** severity level, and click **Save**.
+
+
+<img width="1170" height="927" alt="Screenshot 2026-11-06 114607" src="https://github.com/user-attachments/assets/ebd935a0-bf0a-4618-a124-017ef41b1e9c" />
+<img width="1228" height="698" alt="Screenshot 2026-11-06 114630" src="https://github.com/user-attachments/assets/ae60ce09-55be-4af7-89fa-3fe8967e3043" />
