@@ -108,3 +108,137 @@ sudo /opt/splunkforwarder/bin/splunk add monitor /var/log/audit/audit.log
 After executing the command, provide your Splunk username and password when prompted.
 
 Splunk Universal Forwarder will monitor the Auditd log file and forward newly collected log events to the configured Splunk receiving server.
+
+## 4. Restart Splunk Universal Forwarder
+
+After adding the Auditd log file as a monitored input, restart Splunk Universal Forwarder to apply the configuration.
+
+```bash
+sudo /opt/splunkforwarder/bin/splunk restart
+```
+
+**Command Explanation:**
+
+- `sudo`: Executes the command with administrative privileges.
+- `/opt/splunkforwarder/bin/splunk`: Executes the Splunk Universal Forwarder command-line interface.
+- `restart`: Stops and starts the Splunk Universal Forwarder service to reload its configuration.
+
+## 5. Basic Linux Commands
+
+Use the following commands in the Ubuntu terminal to navigate directories, check files, and read log contents.
+
+### 1. pwd – Print Working Directory
+
+```bash
+pwd
+```
+
+**Command Explanation:**
+
+Displays the current working directory (the location where you are currently working).
+
+### 2. ls – List Files and Directories
+
+```bash
+ls
+```
+
+**Command Explanation:**
+
+Displays the files and directories available in the current working directory.
+
+### 3. cd – Change Directory
+
+```bash
+cd
+```
+
+**Command Explanation:**
+
+Changes the current working directory.
+
+Examples:
+
+```bash
+cd /var/log/audit
+```
+
+Navigates to the Auditd log directory.
+
+```bash
+cd ..
+```
+
+Moves one directory level up.
+
+### 4. cat – Display File Contents
+
+```bash
+cat filename
+```
+
+**Command Explanation:**
+
+Displays the contents of a specified file in the terminal.
+
+Example:
+
+```bash
+sudo cat /var/log/audit/audit.log
+```
+
+Displays the contents of the Auditd log file.
+
+### 5. Open Multiple Files
+
+```bash
+cat file1 file2
+```
+
+**Command Explanation:**
+
+Displays the contents of multiple files sequentially in the terminal.
+
+Example:
+
+```bash
+cat file1.txt file2.txt
+```
+
+## 6. Search Auditd Logs in Splunk
+
+After configuring the Splunk Universal Forwarder, open Splunk Enterprise and navigate to:
+
+**Search & Reporting → Search**
+
+Enter the following SPL query:
+
+```spl
+index=main source="/var/log/audit/audit.log"
+```
+
+**Search Query Explanation:**
+
+- `index=main`: Searches for events stored in the `main` index.
+- `source="/var/log/audit/audit.log"`: Filters events collected from the specified Auditd log file.
+
+### Step 1: Select Time Range
+
+Select **Last 60 minutes** from the time range picker to display events received during the previous 60 minutes.
+
+### Step 2: Filter Specific Activities
+
+To investigate specific activities, add relevant keywords to the search query.
+
+Example: Search for events containing `sudo`.
+
+```spl
+index=main source="/var/log/audit/audit.log" sudo
+```
+
+**Query Explanation:**
+
+- `sudo`: Filters events containing the keyword `sudo`.
+- This helps identify audit log entries that contain references to sudo activity.
+
+You can replace `sudo` with other keywords depending on the activity you want to investigate.
