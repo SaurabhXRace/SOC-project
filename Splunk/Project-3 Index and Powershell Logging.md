@@ -8,7 +8,9 @@ Opened the Ubuntu Linux virtual machine to configure Splunk Universal Forwarder 
 ### 2. Start Splunk Universal Forwarder
 
 **Command:**
+```bash
 sudo /opt/splunkforwarder/bin/splunk start
+```
 
 **Description:**
 Started the Splunk Universal Forwarder service on Ubuntu Linux to enable log collection and forwarding to the Splunk Enterprise server.
@@ -18,7 +20,9 @@ Started the Splunk Universal Forwarder service on Ubuntu Linux to enable log col
 ### 3. Configure the inputs.conf File
 
 **Command:**
+```bash
 sudo nano /opt/splunkforwarder/etc/system/local/inputs.conf
+```
 
 **Description:**
 Opened the inputs.conf configuration file using the Nano text editor with administrative privileges. This file is used to define log sources that Splunk Universal Forwarder monitors and collects.
@@ -28,10 +32,12 @@ Opened the inputs.conf configuration file using the Nano text editor with admini
 ### 4. Configure Linux Authentication Log Monitoring
 
 **Configuration:**
+```ini
 [monitor:///var/log/auth.log]
 disabled = false
 index = linux
 sourcetype = linux_auth
+```
 
 **Description:**
 - monitor: Configured Splunk to monitor the Ubuntu authentication log file.
@@ -56,7 +62,9 @@ Saved the updated log monitoring configuration in inputs.conf to apply the requi
 ### 6. Restart Splunk Universal Forwarder
 
 **Command:**
+```bash
 sudo /opt/splunkforwarder/bin/splunk restart
+```
 
 **Description:**
 Restarted Splunk Universal Forwarder to reload the updated configuration and apply the new log monitoring settings.
