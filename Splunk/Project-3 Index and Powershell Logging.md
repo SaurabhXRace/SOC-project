@@ -240,7 +240,7 @@ Searches for the manual message injected via the `logger` command, validating th
 
 ---
 
-#### Disabling a Monitor Stanza
+#### Disabling a Syslog Monitoring 
 
 To stop monitoring any log path in Ubuntu, open `inputs.conf` in nano and set `disabled = true`:
 
