@@ -242,3 +242,109 @@ index=main source="/var/log/audit/audit.log" sudo
 - This helps identify audit log entries that contain references to sudo activity.
 
 You can replace `sudo` with other keywords depending on the activity you want to investigate.
+
+## 7. Create Sudo Activity / Privilege Escalation Alert in Splunk
+
+### 1. Introduction
+
+Sudo (Superuser Do) allows Linux users to execute commands with elevated privileges.
+
+Monitoring sudo activity is important for SOC analysts because unauthorized or suspicious privilege escalation attempts may indicate potential security threats.
+
+In this lab, we use Splunk Search Processing Language (SPL) to identify sudo command activity, extract usernames and executed commands, summarize the results, and create an alert for monitoring.
+
+### 2. SPL Search Query
+
+Open **Splunk Enterprise → Search & Reporting → Search**.
+
+Enter the following SPL query:
+
+```spl
+index=main sourcetype="linux_audit" "sudo:"
+| rex field=_raw "(?i)^\s*sudo:\s+(?<user>\S+)\s*:\s+.*?COMMAND=(?<command>[^;\r\n]+)"
+| stats count values(command) as command by host, user
+| sort -count
+```
+
+### 3. Command Explanation
+
+**Command 1: Search Sudo Events**
+
+```spl
+index=main sourcetype="linux_audit" "sudo:"
+```
+
+- `index=main`: Searches events stored in the main index.
+- `sourcetype="linux_audit"`: Filters events identified with the linux_audit sourcetype.
+- `"sudo:"`: Searches for events containing the sudo keyword.
+
+**Command 2: Extract Username and Executed Command**
+
+```spl
+| rex field=_raw "(?i)^\s*sudo:\s+(?<user>\S+)\s*:\s+.*?COMMAND=(?<command>[^;\r\n]+)"
+```
+
+- `rex`: Extracts fields from raw event data using a regular expression.
+- `field=_raw`: Applies the regular expression to the original raw log event.
+- `(?i)`: Makes the regular expression case-insensitive.
+- `(?<user>\S+)`: Extracts the username and stores it in a field named `user`.
+- `.*?`: Matches characters between the username and the COMMAND field.
+- `(?<command>[^;\r\n]+)`: Extracts the executed command and stores it in a field named `command`.
+
+**Command 3: Count and Group Sudo Activities**
+
+```spl
+| stats count values(command) as command by host, user
+```
+
+- `stats`: Performs statistical calculations on search results.
+- `count`: Counts the number of matching events.
+- `values(command)`: Displays unique executed commands.
+- `as command`: Assigns the output field name as `command`.
+- `by host, user`: Groups the results by hostname and username.
+
+**Command 4: Sort Results**
+
+```spl
+| sort -count
+```
+
+- `sort`: Sorts the search results.
+- `-count`: Sorts the results in descending order based on event count.
+
+This displays users with the highest number of matching sudo events first.
+
+### 4. Create a Sudo Activity Alert
+
+After executing the search query, save it as an alert.
+
+**Steps to Create the Alert:**
+
+1. Execute the SPL search query in Splunk.
+2. Click **Save As**.
+3. Select **Alert**.
+4. Enter an alert title:
+
+   `Sudo Activity - Privilege Escalation Monitoring`
+
+5. Add a description explaining that the alert monitors sudo command activity.
+6. Configure the alert type and trigger conditions.
+7. Configure the alert action, if required.
+8. Save the alert.
+
+**Recommended Alert Configuration:**
+
+- **Alert Name:** Sudo Activity - Privilege Escalation Monitoring
+- **Search Type:** Scheduled
+- **Trigger Condition:** Number of results greater than 0
+- **Time Range:** Last 60 minutes
+- **Alert Action:** Add to Triggered Alerts
+
+### 5. View Triggered Alerts
+
+After saving the alert:
+
+1. Navigate to **Activity → Triggered Alerts** in Splunk.
+2. Locate the Sudo Activity alert.
+3. Open the alert to review its triggering events.
+4. Investigate the hostname, username, and executed commands.
