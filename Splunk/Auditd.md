@@ -216,6 +216,7 @@ Enter the following SPL query:
 ```spl
 index=main source="/var/log/audit/audit.log"
 ```
+<img width="1722" height="831" alt="audit log" src="https://github.com/user-attachments/assets/6591f49d-b1a6-4701-bf59-db8edf3c5a80" />
 
 **Search Query Explanation:**
 
@@ -235,6 +236,7 @@ Example: Search for events containing `sudo`.
 ```spl
 index=main source="/var/log/audit/audit.log" sudo
 ```
+<img width="1718" height="782" alt="Screenshot 2026-10-21 123743" src="https://github.com/user-attachments/assets/8dce5947-03d2-4e10-bc33-4bf2a92d3a70" />
 
 **Query Explanation:**
 
