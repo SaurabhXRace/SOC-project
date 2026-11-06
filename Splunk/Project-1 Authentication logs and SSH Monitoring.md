@@ -152,6 +152,7 @@ index=main source="/var/log/auth.log" ("Failed password" OR "Authentication fail
 | sort -count
 ```
 
+
 #### Explanation of the Query:
 * `index=main source="/var/log/auth.log"`: Restricts search scope to Linux authentication logs.
 * `("Failed password" OR "Authentication failure")`: Filters for explicit failure events.
@@ -177,8 +178,7 @@ index=main source="/var/log/auth.log" ("Failed password" OR "Authentication fail
 | **Severity** | Medium |
 
 3. Leave remaining parameters as Default and click **Save**.
-
----
+  > **Note:** You can refer to the image below to see how the alert is generated 
 
 ### 3. Verify Triggered Alerts
 To test if the alert system is functional:
