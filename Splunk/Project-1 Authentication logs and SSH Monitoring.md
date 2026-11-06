@@ -151,6 +151,7 @@ index=main source="/var/log/auth.log" ("Failed password" OR "Authentication fail
 | stats count as failures values(user) as users by src_ip
 | sort -count
 ```
+<img width="1722" height="831" alt="Screenshot 2026-10-21 123704" src="https://github.com/user-attachments/assets/fb687e80-0f4f-49f4-bb95-83306e41060f" />
 
 
 #### Explanation of the Query:
